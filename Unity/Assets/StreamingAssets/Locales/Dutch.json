@@ -3,5 +3,7 @@
     "menu-start": "Start",
     "menu-settings": "Instellingen",
     "menu-quit": "Stoppen",
-    "menu-settings-fullscreen": "Volledig scherm"
+    "menu-settings-fullscreen": "Volledig scherm",
+    "menu-dialogue-discard": "Negeren",
+    "menu-dialogue-save": "Opslaan"
 }

@@ -12,6 +12,7 @@ namespace RaceGame.Menu
         [SerializeField] private Toggle _fullScreenToggle;
         [SerializeField] private TMP_Dropdown _localeDropdown;
         [SerializeField] private TMP_Dropdown _resolutionDropdown;
+        [SerializeField] private MenuPanelDialogue _menuPanelDialogue;
 
         private string _locale;
         private Resolution _resolution;
@@ -22,9 +23,6 @@ namespace RaceGame.Menu
         {
             base.Start();
 
-            _locale = I18N.CurrentLocale;
-            _fullScreenToggle.isOn = Screen.fullScreen;
-            
             SetupDropDown(_resolutionDropdown, Screen.resolutions,
                 resolution => $"{resolution.width} X {resolution.height}",
                 resolution => resolution.width == Screen.width && resolution.height == Screen.height);
@@ -32,6 +30,29 @@ namespace RaceGame.Menu
             SetupDropDown(_localeDropdown, I18N.Locales,
                 locale => locale,
                 locale => locale == I18N.CurrentLocale);
+        }
+
+        public override void MoveInToViewPort()
+        {
+            base.MoveInToViewPort();
+
+            _locale = I18N.CurrentLocale;
+            _fullScreenToggle.isOn = Screen.fullScreen;
+        }
+
+        private bool HasChanges() => _locale != I18N.CurrentLocale ||
+                                       _resolution.width != Screen.width &&
+                                       _resolution.height != Screen.height || _fullScreen != Screen.fullScreen;
+
+        public void Close()
+        {
+            if (HasChanges())
+            {
+                _menuPanelDialogue.MoveInToViewPort(Save);
+                return;
+            }
+
+            MoveOutOfViewPort();
         }
 
         private static void SetupDropDown<T>(TMP_Dropdown tmpDropdown, IReadOnlyList<T> items, Func<T, string> setLabel,
@@ -62,7 +83,7 @@ namespace RaceGame.Menu
 
         public void SetVolume(float value) => _volume = value;
 
-        public void Save()
+        private void Save()
         {
             Screen.SetResolution(_resolution.width, _resolution.height, _fullScreen);
             I18N.SetLocale(_locale);

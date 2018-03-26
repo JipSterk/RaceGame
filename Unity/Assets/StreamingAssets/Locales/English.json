@@ -3,5 +3,7 @@
     "menu-start": "Start",
     "menu-settings": "Settings",
     "menu-quit": "Quit",
-    "menu-settings-fullscreen": "FullScreen"
+    "menu-settings-fullscreen": "FullScreen",
+    "menu-dialogue-discard": "Discard",
+    "menu-dialogue-save": "Save"
 }
