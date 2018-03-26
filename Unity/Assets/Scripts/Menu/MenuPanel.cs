@@ -11,10 +11,7 @@ namespace RaceGame.Menu
 
         private Vector3 _resetPosition;
 
-        private void Start()
-        {
-            _resetPosition = transform.position;
-        }
+        protected virtual void Start() => _resetPosition = transform.position;
 
         public void MoveInToViewPort()
         {

@@ -11,13 +11,11 @@ namespace RaceGame.Internationalization
 {
     public static class I18N
     {
-        public static UnityEvent OnLocaleChanged;
+        public static UnityEvent OnLocaleChanged = new UnityEvent();
 
         public static string CurrentLocale { get; private set; }
-
-        public const string Key = "Locale";
-
-        public static readonly string[] Locales = { "Dutch", "English", "German" };
+        
+        public static readonly string[] Locales = {"Dutch", "English", "German"};
 
         private static Dictionary<string, string> _translations = new Dictionary<string, string>();
 
@@ -29,27 +27,24 @@ namespace RaceGame.Internationalization
                 return File.Exists(path) && !string.IsNullOrEmpty(File.ReadAllText(path));
             }).ToArray();
 
-            //TODO Implement SettingsManger
-            var locale = PlayerPrefs.GetString(Key, "English");
+            var locale = Settings.Load().Locale;
             SetLocale(locale);
         }
 
-        private static void SetLocale(string locale)
+        public static void SetLocale(string locale)
         {
-            if(CurrentLocale == locale) return;
+            if (CurrentLocale == locale) return;
 
             CurrentLocale = locale;
 
             var value = File.ReadAllText($"{Application.streamingAssetsPath}/Locales/{CurrentLocale}.json");
             _translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
 
-            //TODO Implement SettingsManger
-            PlayerPrefs.SetString(Key, CurrentLocale);
-
             OnLocaleChanged.Invoke();
         }
 
-        public static void __(this TextMeshProUGUI textMeshProUgui, string key, params object[] args) => textMeshProUgui.text = __(key, args);
+        public static void __(this TextMeshProUGUI textMeshProUgui, string key, params object[] args) =>
+            textMeshProUgui.text = __(key, args);
 
         public static string __(string key, params object[] args)
         {
