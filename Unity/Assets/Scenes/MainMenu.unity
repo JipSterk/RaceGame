@@ -155,32 +155,32 @@ Prefab:
     - target: {fileID: 114521019346104316, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114521019346104316, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114388141812515176, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114388141812515176, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114230550031303344, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114230550031303344, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224887823671570834, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
@@ -265,7 +265,7 @@ Prefab:
     - target: {fileID: 114727073734040342, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: _duration
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1454284411492304, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
       propertyPath: m_Name
@@ -366,6 +366,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224034508561223576, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
@@ -513,17 +518,72 @@ MonoBehaviour:
       _assignMouseOnStart: 1
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 1
-    actions: []
+    - _id: 1
+      _name: Player0
+      _descriptiveName: Player0
+      _startPlaying: 1
+      _defaultJoystickMaps: []
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps: []
+      _defaultCustomControllerMaps: []
+      _startingCustomControllers: []
+      _assignMouseOnStart: 1
+      _assignKeyboardOnStart: 1
+      _excludeFromControllerAutoAssignment: 0
+    actions:
+    - _id: 0
+      _name: UISubmit
+      _type: 1
+      _descriptiveName: UISubmit
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 1
+      _name: UICancel
+      _type: 1
+      _descriptiveName: UICancel
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 2
+      _name: UIHorizontal
+      _type: 0
+      _descriptiveName: UIHorizontal
+      _positiveDescriptiveName: Left
+      _negativeDescriptiveName: Right
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 3
+      _name: UIVertical
+      _type: 0
+      _descriptiveName: UIVertical
+      _positiveDescriptiveName: Up
+      _negativeDescriptiveName: Down
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
       _tag: 
       _id: 0
       _userAssignable: 1
+    - _name: Menu
+      _descriptiveName: Menu
+      _tag: 
+      _id: 1
+      _userAssignable: 1
     actionCategoryMap:
       list:
       - categoryId: 0
         actionIds: 
+      - categoryId: 1
+        actionIds: 00000000010000000200000003000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -556,6 +616,13 @@ MonoBehaviour:
       _userAssignable: 1
       _checkConflictsWithAllCategories: 1
       _checkConflictsCategoryIds: 
+    - _name: Menu
+      _descriptiveName: Menu
+      _tag: 
+      _id: 2
+      _userAssignable: 1
+      _checkConflictsWithAllCategories: 1
+      _checkConflictsCategoryIds: 
     joystickLayouts:
     - _name: Default
       _descriptiveName: Default
@@ -572,21 +639,288 @@ MonoBehaviour:
     - _name: Default
       _descriptiveName: Default
       _id: 0
-    joystickMaps: []
+    joystickMaps:
+    - id: 1
+      categoryId: 0
+      layoutId: 0
+      name: 
+      hardwareGuidString: 83b427e4-086f-47f3-bb06-be266abd1ca5
+      customControllerUid: 0
+      actionElementMaps: []
+    - id: 2
+      categoryId: 2
+      layoutId: 0
+      name: 
+      hardwareGuidString: 83b427e4-086f-47f3-bb06-be266abd1ca5
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 2
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 3
+        _elementType: 0
+        _elementIdentifierId: 1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 0
+        _elementIdentifierId: 2
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 0
+        _elementIdentifierId: 3
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 0
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 1
+        _elementType: 1
+        _elementIdentifierId: 5
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 6
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 7
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 8
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 9
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 10
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 11
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 12
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 13
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 14
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 15
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 16
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 17
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 18
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 19
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 20
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 21
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: -1
+        _elementType: 1
+        _elementIdentifierId: 22
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps: []
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
-    playerIdCounter: 1
-    actionIdCounter: 0
-    actionCategoryIdCounter: 1
+    playerIdCounter: 2
+    actionIdCounter: 4
+    actionCategoryIdCounter: 2
     inputBehaviorIdCounter: 1
-    mapCategoryIdCounter: 1
-    joystickLayoutIdCounter: 1
+    mapCategoryIdCounter: 3
+    joystickLayoutIdCounter: 2
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 0
+    joystickMapIdCounter: 3
     keyboardMapIdCounter: 0
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
@@ -687,6 +1021,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491344860 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614011599}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &772702969 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614011599}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1225368936
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +1102,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1318991425 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1086173652748106, guid: 6ab36070715a05249bcb7bc134c49ad2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614011599}
+--- !u!114 &1318991427 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614011599}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1326251170 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4169954229455308, guid: 6ab36070715a05249bcb7bc134c49ad2,
@@ -924,7 +1281,7 @@ Prefab:
     - target: {fileID: 114727073734040342, guid: 6ab36070715a05249bcb7bc134c49ad2,
         type: 2}
       propertyPath: _duration
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1454284411492304, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
       propertyPath: m_Name
@@ -1041,6 +1398,143 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224034508561223576, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727073734040342, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: _firstSelected
+      value: 
+      objectReference: {fileID: 1318991425}
+    - target: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 491344860}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1318991427}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 772702969}
+    - target: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 491344860}
+    - target: {fileID: 1501735142194048, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
+      propertyPath: m_Name
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017558836809438, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
+      propertyPath: m_Name
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932120757636428, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
+      propertyPath: m_Name
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230550031303344, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_text
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230550031303344, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114521019346104316, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_text
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 114521019346104316, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114521019346104316, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388141812515176, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_text
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388141812515176, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.35294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.34775084
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354874260463162, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.34775084
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.35294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.34775084
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149521772458932, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.34775084
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.35294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.34775084
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063185385184972, guid: 6ab36070715a05249bcb7bc134c49ad2,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.34775084
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab36070715a05249bcb7bc134c49ad2, type: 2}
   m_IsPrefabParent: 0
@@ -1086,6 +1580,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuPanel: {fileID: 1326251171}
+--- !u!1001 &1988449481
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152595705674054, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4aebbfb3b5b06444bbd2513b974a2d23, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2001847379
 GameObject:
   m_ObjectHideFlags: 0

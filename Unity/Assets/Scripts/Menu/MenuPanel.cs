@@ -10,7 +10,7 @@ namespace RaceGame.Menu
         [SerializeField] private float _duration;
 
         private Vector3 _resetPosition;
-        
+
         private void Start()
         {
             _resetPosition = transform.position;
