@@ -23,6 +23,8 @@ namespace RaceGame.Menu
         {
             base.Start();
 
+            _fullScreenToggle.isOn = Screen.fullScreen;
+
             SetupDropDown(_resolutionDropdown, Screen.resolutions,
                 resolution => $"{resolution.width} X {resolution.height}",
                 resolution => resolution.width == Screen.width && resolution.height == Screen.height);
@@ -38,6 +40,7 @@ namespace RaceGame.Menu
 
             _locale = I18N.CurrentLocale;
             _fullScreenToggle.isOn = Screen.fullScreen;
+            
         }
 
         private bool HasChanges() => _locale != I18N.CurrentLocale ||
@@ -48,16 +51,31 @@ namespace RaceGame.Menu
         {
             if (HasChanges())
             {
-                _menuPanelDialogue.MoveInToViewPort(Save);
+                _menuPanelDialogue.MoveInToViewPort(Save, Discard);
                 return;
             }
 
             MoveOutOfViewPort();
         }
 
+        private void Discard()
+        {
+            _fullScreenToggle.isOn = Screen.fullScreen;
+
+            SetupDropDown(_resolutionDropdown, Screen.resolutions,
+                resolution => $"{resolution.width} X {resolution.height}",
+                resolution => resolution.width == Screen.width && resolution.height == Screen.height);
+
+            SetupDropDown(_localeDropdown, I18N.Locales,
+                locale => locale,
+                locale => locale == I18N.CurrentLocale);
+        }
+
         private static void SetupDropDown<T>(TMP_Dropdown tmpDropdown, IReadOnlyList<T> items, Func<T, string> setLabel,
             Func<T, bool> callback)
         {
+            tmpDropdown.ClearOptions();
+
             var dropDownValue = 0;
 
             var options = new List<string>(items.Count);

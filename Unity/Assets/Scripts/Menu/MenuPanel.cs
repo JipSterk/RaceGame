@@ -6,6 +6,9 @@ namespace RaceGame.Menu
 {
     public class MenuPanel : MonoBehaviour
     {
+        public GameObject FirstSelected => _firstSelected;
+
+        [SerializeField] private MenuPanel _previousMenuPanel;
         [SerializeField] private GameObject _firstSelected;
         [SerializeField] private float _duration;
         
@@ -19,6 +22,10 @@ namespace RaceGame.Menu
             EventSystem.current.SetSelectedGameObject(_firstSelected);
         }
 
-        public void MoveOutOfViewPort() => transform.DOMove(_resetPosition, _duration);
+        public void MoveOutOfViewPort()
+        {
+            transform.DOMove(_resetPosition, _duration);
+            EventSystem.current.SetSelectedGameObject(_previousMenuPanel.FirstSelected);
+        }
     }
 }
