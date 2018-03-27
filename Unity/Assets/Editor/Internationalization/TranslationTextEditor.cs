@@ -22,7 +22,7 @@ namespace RaceGame.Editor.Internationalization
 
         private void OnFocus()
         {
-            _path = $"{Application.dataPath}/Editor/Internationalization/Data/TranslationTextEditorSave.json";
+            _path = $"{Application.dataPath}/Editor/Internationalization/Data/translationTextEditorSave.json";
             UpdateTexts();
         }
 
@@ -130,8 +130,8 @@ namespace RaceGame.Editor.Internationalization
             var data = _textsWith.Select(text => new
             {
                 text.GetComponent<TranslationText>().Key,
-                Path = GetPath(text.transform)
-            }).ToDictionary(x => x.Key, y => y.Path);
+                Value = GetPath(text.transform)
+            }).ToDictionary(x => x.Key, y => y.Value);
 
             var json = JsonConvert.SerializeObject(data);
             File.WriteAllText(_path, json);
