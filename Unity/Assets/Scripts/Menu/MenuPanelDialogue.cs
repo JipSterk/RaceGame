@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace RaceGame.Menu
 {
-    public class MenuPanelDialogue: MonoBehaviour
+    public class MenuPanelDialogue : MonoBehaviour
     {
         [SerializeField] private MenuPanel _previousMenuPanel;
         [SerializeField] private GameObject _firstSelected;
@@ -33,8 +33,8 @@ namespace RaceGame.Menu
             EventSystem.current.SetSelectedGameObject(_previousMenuPanel.FirstSelected);
         }
 
-        public void Save() => _save();
+        public void Save() => _save?.Invoke();
 
-        public void Discard() => _discard();
+        public void Discard() => _discard?.Invoke();
     }
 }

@@ -22,7 +22,7 @@ namespace RaceGame.Editor.Internationalization
 
         private void OnFocus()
         {
-            _path = $"{Application.dataPath}/translationTextEditorSave.json";
+            _path = $"{Application.dataPath}/Editor/Internationalization/Data/TranslationTextEditorSave.json";
             UpdateTexts();
         }
 

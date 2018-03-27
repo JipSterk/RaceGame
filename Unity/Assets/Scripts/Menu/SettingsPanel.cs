@@ -43,11 +43,11 @@ namespace RaceGame.Menu
             
         }
 
-        private bool HasChanges() => _locale != I18N.CurrentLocale ||
+        protected override bool HasChanges() => _locale != I18N.CurrentLocale ||
                                        _resolution.width != Screen.width &&
                                        _resolution.height != Screen.height || _fullScreen != Screen.fullScreen;
 
-        public void Close()
+        public override void Close()
         {
             if (HasChanges())
             {
