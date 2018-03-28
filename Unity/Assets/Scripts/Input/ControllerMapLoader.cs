@@ -5,17 +5,26 @@ namespace RaceGame.Input
 {
     public class ControllerMapLoader : MonoBehaviour
     {
-        [SerializeField] private int _playerId;
         [SerializeField] private string _categoryName;
+        [SerializeField] private bool _startAwake;
 
-        private void Start() => LoadMap();
+        private const int PlayerIds = 3;
 
-        public void LoadMap()
+        private void Start()
         {
-            var mapHelper = ReInput.players.GetPlayer(_playerId).controllers.maps;
+            if (_startAwake)
+                LoadMap(_categoryName);
+        }
 
-            mapHelper.ClearMapsForController(ControllerType.Joystick, 0, _categoryName, true);
-            mapHelper.LoadMap(ControllerType.Joystick, 0, _categoryName, "Default", true);
+        public void LoadMap(string categoryName)
+        {
+            for (var i = 0; i <= PlayerIds; i++)
+            {
+                var mapHelper = ReInput.players.GetPlayer(i).controllers.maps;
+
+                mapHelper.ClearMapsForController(ControllerType.Joystick, i, categoryName, true);
+                mapHelper.LoadMap(ControllerType.Joystick, i, categoryName, "Default", true);
+            }
         }
     }
 }

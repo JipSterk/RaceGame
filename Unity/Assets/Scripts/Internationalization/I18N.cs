@@ -14,7 +14,7 @@ namespace RaceGame.Internationalization
         public static UnityEvent OnLocaleChanged = new UnityEvent();
 
         public static string CurrentLocale { get; private set; }
-        
+
         public static readonly string[] Locales = {"Dutch", "English", "German"};
 
         private static Dictionary<string, string> _translations = new Dictionary<string, string>();
