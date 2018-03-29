@@ -14,13 +14,14 @@ namespace RaceGame.Menu
 
         [SerializeField] private float _joinTime;
         [SerializeField] private TextMeshProUGUI _textMeshProUgui;
-        [SerializeField] private Slider _slider;
+        [SerializeField] private Slider _joinSlider;
         [SerializeField] private Image _fill;
 
         private Player _player;
-        private float _currentTime;
+        private float _joinCurrentTime;
+
         private int _playerId;
-        private Action _callBack;
+        private event Action CallBack;
 
         private void Start()
         {
@@ -51,15 +52,15 @@ namespace RaceGame.Menu
                 case Kind.Player:
                     if (_player.GetButton("Join") && !Joined)
                     {
-                        _currentTime -= Time.deltaTime;
-                        _slider.value += Time.deltaTime;
-                        if (_currentTime <= 0) Join();
+                        _joinCurrentTime -= Time.deltaTime;
+                        _joinSlider.value += Time.deltaTime;
+                        if (_joinCurrentTime <= 0) Join();
                     }
                     else if (!Joined)
                     {
-                        if (!(_currentTime < 2)) return;
-                        _currentTime += Time.deltaTime;
-                        _slider.value -= Time.deltaTime;
+                        if (!(_joinCurrentTime < _joinTime)) return;
+                        _joinCurrentTime += Time.deltaTime;
+                        _joinSlider.value -= Time.deltaTime;
                     }
 
                     break;
@@ -77,10 +78,10 @@ namespace RaceGame.Menu
             transform.name = Kind == Kind.Player ? $"Player {_playerId + 1}" : $"AI {_playerId + 1}";
             _textMeshProUgui.__(Kind == Kind.Player ? "menu-play-player" : "menu-play-ai", _playerId + 1);
 
-            _slider.maxValue = _joinTime;
+            _joinSlider.maxValue = _joinTime;
 
-            _currentTime = _joinTime;
-            _callBack = callBack;
+            _joinCurrentTime = _joinTime;
+            CallBack = callBack;
 
             AssignController();
         }
@@ -100,15 +101,15 @@ namespace RaceGame.Menu
         {
             Joined = true;
             _fill.color = Color.green;
-            _callBack();
+            CallBack?.Invoke();
         }
 
         public void Discard()
         {
             Joined = false;
             _fill.color = new Color(255, 255, 255, 255);
-            _slider.value = 0;
-            _currentTime = _joinTime;
+            _joinSlider.value = 0;
+            _joinCurrentTime = _joinTime;
         }
     }
 }

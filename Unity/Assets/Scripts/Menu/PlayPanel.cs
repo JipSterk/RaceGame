@@ -17,7 +17,7 @@ namespace RaceGame.Menu
         [SerializeField] private Slider _slider;
 
         private Player _player;
-        private float _currentTime;
+        private float _cancelCurrentTime;
 
         private readonly List<PlayerRacerSetup> _playerRacerSetups = new List<PlayerRacerSetup>();
 
@@ -28,7 +28,7 @@ namespace RaceGame.Menu
             base.Start();
 
             _player = ReInput.players.GetPlayer(0);
-            _currentTime = _cancelTime;
+            _cancelCurrentTime = _cancelTime;
 
             for (var i = 0; i <= PlayerIds; i++)
             {
@@ -53,14 +53,14 @@ namespace RaceGame.Menu
         {
             if (_player.GetButton("Return"))
             {
-                _currentTime -= Time.deltaTime;
+                _cancelCurrentTime -= Time.deltaTime;
                 _slider.value += Time.deltaTime;
-                if (_currentTime <= 0) Close();
+                if (_cancelCurrentTime <= 0) Close();
             }
             else
             {
-                if (!(_currentTime < 2)) return;
-                _currentTime += Time.deltaTime;
+                if (!(_cancelCurrentTime < _cancelTime)) return;
+                _cancelCurrentTime += Time.deltaTime;
                 _slider.value -= Time.deltaTime;
             }
         }
@@ -84,6 +84,6 @@ namespace RaceGame.Menu
                 playerRacerSetup.Discard();
         }
 
-        protected override bool HasChanges() => _playerRacerSetups.Where(x => x.Kind == Kind.Player).All(x => x.Joined);
+        protected override bool HasChanges() => _playerRacerSetups.Where(x => x.Kind == Kind.Player).Any(x => x.Joined);
     }
 }

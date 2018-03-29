@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joinTime: 2
   _textMeshProUgui: {fileID: 114333409473904430}
-  _slider: {fileID: 114786630136073408}
+  _joinSlider: {fileID: 114786630136073408}
   _fill: {fileID: 114136404442899840}
 --- !u!114 &114786630136073408
 MonoBehaviour:
