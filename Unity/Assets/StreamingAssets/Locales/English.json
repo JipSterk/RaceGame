@@ -4,6 +4,10 @@
     "menu-settings": "Settings",
     "menu-quit": "Quit",
     "menu-settings-fullscreen": "FullScreen",
+    "menu-play-ai" : "AI {0}",
+    "menu-play-player": "Player {0}",
     "menu-dialogue-discard": "Discard",
-    "menu-dialogue-save": "Save"
+    "menu-dialogue-save": "Save",
+    "menu-dialogue-cancel": "Cancel",
+    "menu-dialogue-quit": "Quit"
 }

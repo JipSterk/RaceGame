@@ -5,5 +5,7 @@
     "menu-quit": "Stoppen",
     "menu-settings-fullscreen": "Volledig scherm",
     "menu-dialogue-discard": "Negeren",
-    "menu-dialogue-save": "Opslaan"
+    "menu-dialogue-save": "Opslaan",
+    "menu-dialogue-cancel": "Annuleren",
+    "menu-dialogue-quit": "Stoppen"
 }
