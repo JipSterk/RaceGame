@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RaceGame.Input;
 using UnityEngine;
 
 namespace RaceGame.Menu
@@ -8,7 +9,9 @@ namespace RaceGame.Menu
     {
         [SerializeField] private PlayerRacerSetup _playerRacerSetup;
         [SerializeField] private Transform _playerRacerSetupTransform;
-        [SerializeField] private MenuPanelDialogue _menuPanelDialogue;
+        [SerializeField] private ControllerMapLoader _controllerMapLoader;
+        [SerializeField] private MenuPanelDialogue _menuStartPanelDialogue;
+        [SerializeField] private MenuPanelDialogue _menuStopPanelDialogue;
 
         private readonly List<PlayerRacerSetup> _playerRacerSetups = new List<PlayerRacerSetup>();
 
@@ -30,19 +33,31 @@ namespace RaceGame.Menu
         {
             if (HasChanges())
             {
-                _menuPanelDialogue.MoveInToViewPort(null, null);
+                _menuStopPanelDialogue.MoveInToViewPort();
                 return;
             }
 
             MoveOutOfViewPort();
         }
 
+
         private void Play()
         {
             if (_playerRacerSetups.Where(x => x.Kind == Kind.Player).All(x => x.Joined))
             {
-                Debug.Log("Play");
+                _menuStartPanelDialogue.MoveInToViewPort();
             }
+        }
+
+        public override void Save()
+        {
+            //load the play scene
+        }
+
+        public override void Discard()
+        {
+            foreach (var playerRacerSetup in _playerRacerSetups.Where(x => x.Kind == Kind.Player))
+                playerRacerSetup.Discard();
         }
 
         protected override bool HasChanges() => _playerRacerSetups.Where(x => x.Kind == Kind.Player).All(x => x.Joined);

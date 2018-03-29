@@ -102,5 +102,13 @@ namespace RaceGame.Menu
             _fill.color = Color.green;
             _callBack();
         }
+
+        public void Discard()
+        {
+            Joined = false;
+            _fill.color = new Color(255, 255, 255, 255);
+            _slider.value = 0;
+            _currentTime = _joinTime;
+        }
     }
 }

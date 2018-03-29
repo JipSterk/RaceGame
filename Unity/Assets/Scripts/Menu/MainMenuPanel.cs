@@ -10,7 +10,7 @@ namespace RaceGame.Menu
         {
             if (HasChanges())
             {
-                _menuPanelDialogue.MoveInToViewPort(null, Application.Quit);
+                _menuPanelDialogue.MoveInToViewPort();
                 return;
             }
 
@@ -18,5 +18,11 @@ namespace RaceGame.Menu
         }
         
         protected override bool HasChanges() => true;
+
+        public override void Save()
+        {
+        }
+
+        public override void Discard() => Application.Quit();
     }
 }

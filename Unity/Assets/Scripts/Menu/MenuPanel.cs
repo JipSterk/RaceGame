@@ -12,19 +12,19 @@ namespace RaceGame.Menu
         [SerializeField] private GameObject _firstSelected;
         [SerializeField] private float _duration;
 
-        private Vector3 _resetPosition;
+        private float _resetPosition;
 
-        protected virtual void Start() => _resetPosition = transform.position;
+        protected virtual void Start() => _resetPosition = ((RectTransform)transform).anchoredPosition.y;
 
         public virtual void MoveInToViewPort()
         {
-            transform.DOMove(new Vector3(0, 0, transform.position.z), _duration);
+            ((RectTransform)transform).DOAnchorPosY(0, _duration);
             EventSystem.current.SetSelectedGameObject(_firstSelected);
         }
 
         public void MoveOutOfViewPort()
         {
-            transform.DOMove(_resetPosition, _duration);
+            ((RectTransform)transform).DOAnchorPosY(_resetPosition, _duration);
             if (_previousMenuPanel)
                 EventSystem.current.SetSelectedGameObject(_previousMenuPanel.FirstSelected);
         }
@@ -32,5 +32,9 @@ namespace RaceGame.Menu
         public abstract void Close();
 
         protected abstract bool HasChanges();
+
+        public abstract void Save();
+
+        public abstract void Discard();
     }
 }
