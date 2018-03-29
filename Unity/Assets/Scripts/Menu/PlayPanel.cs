@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RaceGame.Input;
+using Rewired;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RaceGame.Menu
 {
@@ -9,9 +11,13 @@ namespace RaceGame.Menu
     {
         [SerializeField] private PlayerRacerSetup _playerRacerSetup;
         [SerializeField] private Transform _playerRacerSetupTransform;
-        [SerializeField] private ControllerMapLoader _controllerMapLoader;
         [SerializeField] private MenuPanelDialogue _menuStartPanelDialogue;
         [SerializeField] private MenuPanelDialogue _menuStopPanelDialogue;
+        [SerializeField] private float _cancelTime;
+        [SerializeField] private Slider _slider;
+
+        private Player _player;
+        private float _currentTime;
 
         private readonly List<PlayerRacerSetup> _playerRacerSetups = new List<PlayerRacerSetup>();
 
@@ -20,6 +26,9 @@ namespace RaceGame.Menu
         protected override void Start()
         {
             base.Start();
+
+            _player = ReInput.players.GetPlayer(0);
+            _currentTime = _cancelTime;
 
             for (var i = 0; i <= PlayerIds; i++)
             {
@@ -40,6 +49,21 @@ namespace RaceGame.Menu
             MoveOutOfViewPort();
         }
 
+        private void Update()
+        {
+            if (_player.GetButton("Return"))
+            {
+                _currentTime -= Time.deltaTime;
+                _slider.value += Time.deltaTime;
+                if (_currentTime <= 0) Close();
+            }
+            else
+            {
+                if (!(_currentTime < 2)) return;
+                _currentTime += Time.deltaTime;
+                _slider.value -= Time.deltaTime;
+            }
+        }
 
         private void Play()
         {
