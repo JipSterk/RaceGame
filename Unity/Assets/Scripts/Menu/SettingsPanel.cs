@@ -43,22 +43,22 @@ namespace RaceGame.Menu
             
         }
 
-        private bool HasChanges() => _locale != I18N.CurrentLocale ||
+        protected override bool HasChanges() => _locale != I18N.CurrentLocale ||
                                        _resolution.width != Screen.width &&
                                        _resolution.height != Screen.height || _fullScreen != Screen.fullScreen;
 
-        public void Close()
+        public override void Close()
         {
             if (HasChanges())
             {
-                _menuPanelDialogue.MoveInToViewPort(Save, Discard);
+                _menuPanelDialogue.MoveInToViewPort();
                 return;
             }
 
             MoveOutOfViewPort();
         }
 
-        private void Discard()
+        public override void Discard()
         {
             _fullScreenToggle.isOn = Screen.fullScreen;
 
@@ -101,7 +101,7 @@ namespace RaceGame.Menu
 
         public void SetVolume(float value) => _volume = value;
 
-        private void Save()
+        public override void Save()
         {
             Screen.SetResolution(_resolution.width, _resolution.height, _fullScreen);
             I18N.SetLocale(_locale);
