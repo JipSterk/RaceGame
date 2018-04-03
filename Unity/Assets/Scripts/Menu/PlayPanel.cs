@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RaceGame.Input;
+using RaceGame.SceneManagement;
 using Rewired;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,10 +74,7 @@ namespace RaceGame.Menu
             }
         }
 
-        public override void Save()
-        {
-            //load the play scene
-        }
+        public override void Save() => LevelManager.Instance.LoadScene("Level_01");
 
         public override void Discard()
         {
