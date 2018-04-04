@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using RaceGame.Internationalization;
 using Rewired;
 using TMPro;
@@ -17,7 +18,7 @@ namespace RaceGame.Menu
         [SerializeField] private Slider _joinSlider;
         [SerializeField] private Image _fill;
 
-        private Player _player;
+        private Rewired.Player _player;
         private float _joinCurrentTime;
 
         private int _playerId;
@@ -73,7 +74,10 @@ namespace RaceGame.Menu
         {
             _playerId = playerId;
             _player = ReInput.players.GetPlayer(_playerId);
-            Kind = _player.controllers.joystickCount > 0 ? Kind.Player : Kind.Ai;
+
+            AssignController();
+
+            Kind = _player.controllers.joystickCount > 0 || _player.controllers.hasKeyboard ? Kind.Player : Kind.Ai;
 
             transform.name = Kind == Kind.Player ? $"Player {_playerId + 1}" : $"AI {_playerId + 1}";
             _textMeshProUgui.__(Kind == Kind.Player ? "menu-play-player" : "menu-play-ai", _playerId + 1);
@@ -82,8 +86,6 @@ namespace RaceGame.Menu
 
             _joinCurrentTime = _joinTime;
             CallBack = callBack;
-
-            AssignController();
         }
 
         private void AssignController()

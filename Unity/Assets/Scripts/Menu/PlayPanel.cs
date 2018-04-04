@@ -17,7 +17,7 @@ namespace RaceGame.Menu
         [SerializeField] private float _cancelTime;
         [SerializeField] private Slider _slider;
 
-        private Player _player;
+        private Rewired.Player _player;
         private float _cancelCurrentTime;
 
         private readonly List<PlayerRacerSetup> _playerRacerSetups = new List<PlayerRacerSetup>();

@@ -22,7 +22,9 @@ namespace RaceGame.Input
             {
                 var mapHelper = ReInput.players.GetPlayer(i).controllers.maps;
 
-                mapHelper.ClearMapsForController(ControllerType.Joystick, i, categoryName, true);
+                if (i == 0)
+                    mapHelper.LoadMap(ControllerType.Keyboard, i, categoryName, "Default", true);
+
                 mapHelper.LoadMap(ControllerType.Joystick, i, categoryName, "Default", true);
             }
         }

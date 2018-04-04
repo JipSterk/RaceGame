@@ -7,13 +7,15 @@ namespace RaceGame.Input
     {
         [SerializeField] private int _playerId;
         
-        private Player _player;
+        private Rewired.Player _player;
 
         protected override void Start()
         {
             base.Start();
 
             _player = ReInput.players.GetPlayer(_playerId);
+
+            transform.name = $"Player {_playerId}";
         }
 
         protected override void FixedUpdate()
