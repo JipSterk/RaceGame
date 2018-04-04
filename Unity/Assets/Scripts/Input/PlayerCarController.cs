@@ -5,17 +5,13 @@ namespace RaceGame.Input
 {
     public class PlayerCarController : BaseCarController
     {
-        [SerializeField] private int _playerId;
-        
         private Rewired.Player _player;
 
-        protected override void Start()
+        public void Init(int playerId)
         {
-            base.Start();
+            _player = ReInput.players.GetPlayer(playerId);
 
-            _player = ReInput.players.GetPlayer(_playerId);
-
-            transform.name = $"Player {_playerId}";
+            transform.name = $"Player {playerId}";
         }
 
         protected override void FixedUpdate()

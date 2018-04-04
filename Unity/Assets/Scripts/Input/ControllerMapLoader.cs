@@ -1,4 +1,5 @@
-﻿using Rewired;
+﻿using System.Collections.Generic;
+using Rewired;
 using UnityEngine;
 
 namespace RaceGame.Input
@@ -10,14 +11,18 @@ namespace RaceGame.Input
 
         private const int PlayerIds = 3;
 
-        private void Start()
+        public static List<string> CategoryHistory { get; } = new List<string>();
+
+        public void Start()
         {
-            if (_startAwake)
+            if(_startAwake)
                 LoadMap(_categoryName);
         }
 
         public void LoadMap(string categoryName)
         {
+            CategoryHistory.Add(categoryName);
+
             for (var i = 0; i <= PlayerIds; i++)
             {
                 var mapHelper = ReInput.players.GetPlayer(i).controllers.maps;

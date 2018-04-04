@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using RaceGame.Input;
 using RaceGame.Internationalization;
+using RaceGame.Level;
 using Rewired;
 using TMPro;
 using UnityEngine;
@@ -27,17 +29,26 @@ namespace RaceGame.Menu
         private void Start()
         {
             ReInput.ControllerConnectedEvent += OnReInputOnControllerConnectedEvent;
-            ReInput.ControllerDisconnectedEvent += OnReInputOnControllerConnectedEvent;
+            ReInput.ControllerConnectedEvent += UpdateUi;
+            ReInput.ControllerDisconnectedEvent += UpdateUi;
         }
 
         private void OnReInputOnControllerConnectedEvent(
             ControllerStatusChangedEventArgs controllerStatusChangedEventArgs)
         {
-            if (controllerStatusChangedEventArgs.controllerType == ControllerType.Joystick)
-            {
-                AssignController();
-            }
+            if (controllerStatusChangedEventArgs.controllerType != ControllerType.Joystick) return;
+            AssignController();
 
+            foreach (var joystick in ReInput.controllers.Joysticks)
+            {
+                var index = Array.IndexOf(_player.controllers.Joysticks.ToArray(), joystick);
+                ControllerMapLoader.CategoryHistory.ForEach(x =>
+                    _player.controllers.maps.LoadMap(ControllerType.Joystick, index, x, "Default", true));
+            }
+        }
+
+        private void UpdateUi(ControllerStatusChangedEventArgs controllerStatusChangedEventArgs)
+        {
             Kind = _player.controllers.joystickCount > 0 ? Kind.Player : Kind.Ai;
 
             transform.name = Kind == Kind.Player ? $"Player {_playerId + 1}" : $"AI {_playerId + 1}";
@@ -103,6 +114,9 @@ namespace RaceGame.Menu
         {
             Joined = true;
             _fill.color = Color.green;
+
+            GameManager.Instance.RegisterPlayer($"Player {_playerId}");
+
             CallBack?.Invoke();
         }
 
