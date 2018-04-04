@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using RaceGame.Input;
 using RaceGame.Internationalization;
+using RaceGame.Level;
 using Rewired;
 using TMPro;
 using UnityEngine;
@@ -17,7 +20,7 @@ namespace RaceGame.Menu
         [SerializeField] private Slider _joinSlider;
         [SerializeField] private Image _fill;
 
-        private Player _player;
+        private Rewired.Player _player;
         private float _joinCurrentTime;
 
         private int _playerId;
@@ -26,17 +29,26 @@ namespace RaceGame.Menu
         private void Start()
         {
             ReInput.ControllerConnectedEvent += OnReInputOnControllerConnectedEvent;
-            ReInput.ControllerDisconnectedEvent += OnReInputOnControllerConnectedEvent;
+            ReInput.ControllerConnectedEvent += UpdateUi;
+            ReInput.ControllerDisconnectedEvent += UpdateUi;
         }
 
         private void OnReInputOnControllerConnectedEvent(
             ControllerStatusChangedEventArgs controllerStatusChangedEventArgs)
         {
-            if (controllerStatusChangedEventArgs.controllerType == ControllerType.Joystick)
-            {
-                AssignController();
-            }
+            if (controllerStatusChangedEventArgs.controllerType != ControllerType.Joystick) return;
+            AssignController();
 
+            foreach (var joystick in ReInput.controllers.Joysticks)
+            {
+                var index = Array.IndexOf(_player.controllers.Joysticks.ToArray(), joystick);
+                ControllerMapLoader.CategoryHistory.ForEach(x =>
+                    _player.controllers.maps.LoadMap(ControllerType.Joystick, index, x, "Default", true));
+            }
+        }
+
+        private void UpdateUi(ControllerStatusChangedEventArgs controllerStatusChangedEventArgs)
+        {
             Kind = _player.controllers.joystickCount > 0 ? Kind.Player : Kind.Ai;
 
             transform.name = Kind == Kind.Player ? $"Player {_playerId + 1}" : $"AI {_playerId + 1}";
@@ -73,7 +85,10 @@ namespace RaceGame.Menu
         {
             _playerId = playerId;
             _player = ReInput.players.GetPlayer(_playerId);
-            Kind = _player.controllers.joystickCount > 0 ? Kind.Player : Kind.Ai;
+
+            AssignController();
+
+            Kind = _player.controllers.joystickCount > 0 || _player.controllers.hasKeyboard ? Kind.Player : Kind.Ai;
 
             transform.name = Kind == Kind.Player ? $"Player {_playerId + 1}" : $"AI {_playerId + 1}";
             _textMeshProUgui.__(Kind == Kind.Player ? "menu-play-player" : "menu-play-ai", _playerId + 1);
@@ -82,8 +97,6 @@ namespace RaceGame.Menu
 
             _joinCurrentTime = _joinTime;
             CallBack = callBack;
-
-            AssignController();
         }
 
         private void AssignController()
@@ -101,6 +114,9 @@ namespace RaceGame.Menu
         {
             Joined = true;
             _fill.color = Color.green;
+
+            GameManager.Instance.RegisterPlayer($"Player {_playerId}");
+
             CallBack?.Invoke();
         }
 
