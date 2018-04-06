@@ -1,19 +1,18 @@
 ﻿using RaceGame.Car;
-using UnityEngine;
 
 namespace RaceGame.Level
 {
     public struct PlayerInfo
     {
-        public Vector3 LastWayPoint { get; set; }
+        public CheckPoint CheckPoint { get; set; }
 
-        public string Name { get; }
+        public Player Player { get; }
         public CarController CarController { get; }
 
-        public PlayerInfo(Vector3 lastWayPoint, string name, CarController carController)
+        public PlayerInfo(CheckPoint checkPoint, Player player, CarController carController)
         {
-            LastWayPoint = lastWayPoint;
-            Name = name;
+            CheckPoint = checkPoint;
+            Player = player;
             CarController = carController;
         }
     }
