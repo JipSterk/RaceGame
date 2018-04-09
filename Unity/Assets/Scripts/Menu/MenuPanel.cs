@@ -14,19 +14,18 @@ namespace RaceGame.Menu
 
         private float _resetPosition;
 
-        protected virtual void Start() => _resetPosition = ((RectTransform)transform).anchoredPosition.y;
+        protected virtual void Start() => _resetPosition = ((RectTransform) transform).anchoredPosition.y;
 
         public virtual void MoveInToViewPort()
         {
-            ((RectTransform)transform).DOAnchorPosY(0, _duration);
-            EventSystem.current.SetSelectedGameObject(_firstSelected);
+            ((RectTransform) transform).DOAnchorPosY(0, _duration);
+            EventSystem.current.SetSelectedGameObject(_firstSelected ? _firstSelected : null);
         }
 
         public void MoveOutOfViewPort()
         {
-            ((RectTransform)transform).DOAnchorPosY(_resetPosition, _duration);
-            if (_previousMenuPanel)
-                EventSystem.current.SetSelectedGameObject(_previousMenuPanel.FirstSelected);
+            ((RectTransform) transform).DOAnchorPosY(_resetPosition, _duration);
+            EventSystem.current.SetSelectedGameObject(_previousMenuPanel ? _previousMenuPanel.FirstSelected : null);
         }
 
         public abstract void Close();

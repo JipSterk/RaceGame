@@ -1,6 +1,7 @@
 ﻿using RaceGame.Car;
 using RaceGame.Level;
 using Rewired;
+using UnityEngine;
 
 namespace RaceGame.Input
 {
@@ -23,6 +24,8 @@ namespace RaceGame.Input
 
             var checkPoint = GameManager.Instance.GetCheckPoint(0);
             GameManager.Instance.RegisterCarController(checkPoint, Player, _carController);
+
+            GetComponentInChildren<ParticleSystem>().Play();
         }
 
         protected override void FixedUpdate()

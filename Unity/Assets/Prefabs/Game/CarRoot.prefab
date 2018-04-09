@@ -503,11 +503,11 @@ MonoBehaviour:
   _axleInfos:
   - LeftWheel: {fileID: 146809533067311892}
     RightWheel: {fileID: 146913881084988108}
-    Motor: 1
+    Motor: 0
     Steering: 1
   - LeftWheel: {fileID: 146819958951137004}
     RightWheel: {fileID: 146372887840734492}
-    Motor: 0
+    Motor: 1
     Steering: 0
   _maxMotorTorque: 400
   _maxSteeringAngle: 30
