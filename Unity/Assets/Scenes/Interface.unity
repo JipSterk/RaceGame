@@ -257,12 +257,12 @@ Prefab:
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114782271415489422, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
@@ -567,6 +567,34 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_text
+      value: 'Warning
+
+
+        Do you want to save changed settings?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f97f0d22cb94cc408c06eb887f5625d, type: 2}
   m_IsPrefabParent: 0
@@ -680,12 +708,12 @@ Prefab:
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114782271415489422, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
@@ -1004,6 +1032,34 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 1.0000306
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_text
+      value: 'Warning
+
+
+        Are you ready to play?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f97f0d22cb94cc408c06eb887f5625d, type: 2}
@@ -2729,6 +2785,23 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
+--- !u!1 &1178651198 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1420877692861958, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+    type: 2}
+  m_PrefabInternal: {fileID: 158497829}
+--- !u!114 &1178651199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1178651198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af0ee3b9ba4ed79cd402c68b1cf975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: menu-dialogue-play-start-text
 --- !u!1 &1189743697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,6 +3778,23 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 1
+--- !u!1 &1508333531 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1420877692861958, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1816043452}
+--- !u!114 &1508333532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508333531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af0ee3b9ba4ed79cd402c68b1cf975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: menu-dialogue-quit-text
 --- !u!1 &1648711112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,6 +3961,40 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!1 &1715036468 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1420877692861958, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941799274}
+--- !u!114 &1715036469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715036468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af0ee3b9ba4ed79cd402c68b1cf975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: menu-dialogue-play-stop-text
+--- !u!1 &1718888049 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1420877692861958, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+    type: 2}
+  m_PrefabInternal: {fileID: 143067182}
+--- !u!114 &1718888050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718888049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af0ee3b9ba4ed79cd402c68b1cf975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: menu-dialogue-settings-text
 --- !u!1 &1745008670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,12 +4236,12 @@ Prefab:
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114782271415489422, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
@@ -4465,6 +4589,34 @@ Prefab:
         type: 2}
       propertyPath: m_textInfo.characterCount
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_text
+      value: 'Warning
+
+
+        Are you sure you want to quit?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f97f0d22cb94cc408c06eb887f5625d, type: 2}
@@ -4851,12 +5003,12 @@ Prefab:
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114782271415489422, guid: 7f97f0d22cb94cc408c06eb887f5625d,
         type: 2}
@@ -5175,6 +5327,34 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 1.0000306
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_text
+      value: 'Warning
+
+
+        Do you want to return to the main menu?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203417633124998, guid: 7f97f0d22cb94cc408c06eb887f5625d,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f97f0d22cb94cc408c06eb887f5625d, type: 2}
