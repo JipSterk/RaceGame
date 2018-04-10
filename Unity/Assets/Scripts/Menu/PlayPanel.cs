@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using RaceGame.Input;
 using RaceGame.SceneManagement;
 using Rewired;
 using UnityEngine;

@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,14 +17,13 @@ namespace RaceGame.Menu
         internal void MoveInToViewPort()
         {
             ((RectTransform) transform).DOAnchorPosY(0, _duration);
-            EventSystem.current.SetSelectedGameObject(_firstSelected);
+            EventSystem.current.SetSelectedGameObject(_firstSelected ? _firstSelected : null);
         }
 
         public void MoveOutOfViewPort()
         {
             ((RectTransform) transform).DOAnchorPosY(_resetPosition, _duration);
-            if(_previousMenuPanel)
-                EventSystem.current.SetSelectedGameObject(_previousMenuPanel.FirstSelected);
+            EventSystem.current.SetSelectedGameObject(_previousMenuPanel ? _previousMenuPanel.FirstSelected : null);
         }
     }
 }

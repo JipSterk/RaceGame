@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using Cinemachine;
 using RaceGame.Input;
 using UnityEngine;
@@ -10,14 +11,27 @@ namespace RaceGame.Player
         [SerializeField] private float _waitTime;
         [SerializeField] private Behaviour[] _behavioursToEnable;
 
+        public static int PlayerToLayerMask(int playerId)
+        {
+            int[] playerIds = { 0, 1, 2, 3 };
+
+            playerIds = playerIds.Where(x => x != playerId).ToArray();
+
+            return ~(9 << LayerMask.NameToLayer($"Player {playerIds[0]} Camera") |
+                     9 << LayerMask.NameToLayer($"Player {playerIds[1]} Camera") |
+                     9 << LayerMask.NameToLayer($"Player {playerIds[2]} Camera"));
+        }
+
         public IEnumerator Setup(CinemachineVirtualCamera cinemachineVirtualCamera, Camera playerCamera, int players,
             int playerId)
         {
             playerCamera.name = $"Player {playerId}'s Camera";
-            playerCamera.cullingMask = playerId.PlayerToLayerMask();
+            playerCamera.cullingMask = PlayerToLayerMask(playerId);
 
             cinemachineVirtualCamera.name = $"Player {playerId}'s Cinemachine";
             cinemachineVirtualCamera.gameObject.layer = LayerMask.NameToLayer($"Player {playerId} Camera");
+
+            cinemachineVirtualCamera.Follow = cinemachineVirtualCamera.LookAt = transform;
 
             switch (players)
             {
@@ -58,8 +72,6 @@ namespace RaceGame.Player
 
                     break;
             }
-
-            cinemachineVirtualCamera.Follow = cinemachineVirtualCamera.LookAt = transform;
 
             yield return new WaitForSeconds(_waitTime);
 

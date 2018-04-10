@@ -9,5 +9,9 @@
     "menu-dialogue-discard": "Discard",
     "menu-dialogue-save": "Save",
     "menu-dialogue-cancel": "Cancel",
-    "menu-dialogue-quit": "Quit"
+    "menu-dialogue-quit": "Quit",
+    "menu-dialogue-quit-text": "Warning\n\nAre you sure you want to quit?",
+    "menu-dialogue-settings-text": "Warning\n\nDo you want to save changed settings?",
+    "menu-dialogue-play-start-text": "Warning\n\nAre you ready to play?",
+    "menu-dialogue-play-stop-text": "Warning\n\nDo you want to return to the main menu?"
 }

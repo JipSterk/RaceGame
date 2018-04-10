@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using RaceGame.Car;
 using UnityEngine;
 
@@ -12,7 +13,9 @@ namespace RaceGame.Level
 
         public List<string> Players { get; } = new List<string>();
 
-        private readonly Dictionary<string, PlayerInfo> PlayerInfos = new Dictionary<string, PlayerInfo>();
+        private List<CheckPoint> _checkPoints = new List<CheckPoint>();
+
+        private readonly Dictionary<Player, PlayerInfo> _playerInfos = new Dictionary<Player, PlayerInfo>();
 
         private static GameManager _instance;
 
@@ -33,20 +36,38 @@ namespace RaceGame.Level
             Players.Add(player);
         }
 
-        public void RegisterCarController(string playerName, CarController carController)
-        {
-            var playerInfo = new PlayerInfo(carController.transform.position, playerName, carController);
+        public void RegisterCarController(CheckPoint checkPoint, Player player, CarController carController)
+        {   
+            var playerInfo = new PlayerInfo(checkPoint, player, carController);
 
-            if(PlayerInfos.ContainsKey(playerName)) return;
-            PlayerInfos.Add(playerName, playerInfo);
+            if(_playerInfos.ContainsKey(player)) return;
+            _playerInfos.Add(player, playerInfo);
         }
 
-        public PlayerInfo GetPlayerInfo(string key) => PlayerInfos[key];
+        public PlayerInfo GetPlayerInfo(Player key) => _playerInfos[key];
 
-        public void NextCheckPoint(string key, Vector3 wayPoint)
+        public CheckPoint GetCheckPoint(int index) => _checkPoints[index];
+
+        public CheckPoint NextCheckPoint(Player key, CheckPoint checkPoint)
         {
             var playerInfo = GetPlayerInfo(key);
-            playerInfo.LastWayPoint = wayPoint;
+            
+            if (playerInfo.CheckPoint < checkPoint)
+                return checkPoint;
+
+            playerInfo.CheckPoint = checkPoint;
+
+            if (checkPoint.Index < _checkPoints.Count)
+                return _checkPoints[checkPoint.Index + 1];
+
+            playerInfo.Lap++;
+            return _checkPoints[0];
+        }
+        
+        public void RegisterCheckPoint(CheckPoint checkPoint)
+        {
+            _checkPoints.Add(checkPoint);
+            _checkPoints = _checkPoints.OrderBy(x => x.Index).ToList();
         }
     }
 }

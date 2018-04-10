@@ -26,8 +26,8 @@ namespace RaceGame.SceneManagement
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 
-            foreach (var scene in Scenes)
-                SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+//            foreach (var scene in Scenes)
+//                SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
     }
 }

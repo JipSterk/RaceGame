@@ -8,6 +8,7 @@ namespace RaceGame.Car
         [SerializeField] private List<AxleInfo> _axleInfos = new List<AxleInfo>();
         [SerializeField] private float _maxMotorTorque;
         [SerializeField] private float _maxSteeringAngle;
+        [SerializeField] private float _speed;
 
         public void ApplyLocalPositionToVisuals(WheelCollider wheelCollider)
         {
@@ -39,8 +40,8 @@ namespace RaceGame.Car
 
                 if (axleInfo.Motor)
                 {
-                    axleInfo.LeftWheel.motorTorque = motor;
-                    axleInfo.RightWheel.motorTorque = motor;
+                    axleInfo.LeftWheel.motorTorque = motor * _speed;
+                    axleInfo.RightWheel.motorTorque = motor * _speed;
                 }
 
                 ApplyLocalPositionToVisuals(axleInfo.LeftWheel);
