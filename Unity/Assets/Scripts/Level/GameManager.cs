@@ -57,7 +57,11 @@ namespace RaceGame.Level
 
             playerInfo.CheckPoint = checkPoint;
 
-            return checkPoint.Index < _checkPoints.Count ? _checkPoints[checkPoint.Index + 1] : _checkPoints[0];
+            if (checkPoint.Index < _checkPoints.Count)
+                return _checkPoints[checkPoint.Index + 1];
+
+            playerInfo.Lap++;
+            return _checkPoints[0];
         }
         
         public void RegisterCheckPoint(CheckPoint checkPoint)

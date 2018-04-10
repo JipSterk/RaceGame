@@ -625,7 +625,7 @@ MonoBehaviour:
     _steering: 0
   _maxMotorTorque: 400
   _maxSteeringAngle: 30
-  _speed: 3
+  _speed: 1.5
 --- !u!114 &114509889056790780
 MonoBehaviour:
   m_ObjectHideFlags: 1
